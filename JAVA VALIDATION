@@ -1,0 +1,49 @@
+!DOCTYPE html>
+<html>
+<head>
+    <title>Tollgate Payment Registration</title>
+    <script>
+        function validateForm() {
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var vehicle = document.getElementById("vehicle").value;
+            var creditCard = document.getElementById("credit_card").value;
+            var expiry = document.getElementById("expiry").value;
+            var cvv = document.getElementById("cvv").value;
+
+            if (name === "" || email === "" || vehicle === "" || creditCard === "" || expiry === "" || cvv === "") {
+                alert("All fields must be filled out");
+                return false;
+            }
+
+            // Add more specific validation for each field as needed, e.g., email validation, credit card format, etc.
+            
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <h1>Tollgate Payment Registration</h1>
+    <form action="process_payment.php" method="POST" onsubmit="return validateForm()">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="vehicle">Vehicle Number:</label>
+        <input type="text" id="vehicle" name="vehicle" required><br><br>
+
+        <label for="credit_card">Credit Card Number:</label>
+        <input type="text" id="credit_card" name="credit_card" required><br><br>
+
+        <label for="expiry">Expiry Date:</label>
+        <input type="text" id="expiry" name="expiry" placeholder="MM/YY" required><br><br>
+
+        <label for="cvv">CVV:</label>
+        <input type="text" id="cvv" name="cvv" required><br><br>
+
+        <input type="submit" value="Pay Now">
+    </form>
+</body>
+</html>
